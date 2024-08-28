@@ -12,9 +12,10 @@ namespace OrderManagement.Core.Entities
     {
         [BsonId]
         public ObjectId Id { get; set; }
-        public int ProductId { get; set; }
         public string Address { get; set; }
         public decimal Sum { get; set; }
         public string Description { get; set; }
+
+        public List<OrderItem> Items { get; set; }
     }
 }

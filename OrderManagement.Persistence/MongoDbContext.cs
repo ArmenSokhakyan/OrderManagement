@@ -21,6 +21,7 @@ namespace OrderManagement.Persistence
         }
 
         public IMongoCollection<Order> Orders => _database.GetCollection<Order>("Orders");
+        public IMongoCollection<OrderItem> OrderItems => _database.GetCollection<OrderItem>("OrderItems");
         public IMongoCollection<Product> Products => _database.GetCollection<Product>("Products");
     }
 }

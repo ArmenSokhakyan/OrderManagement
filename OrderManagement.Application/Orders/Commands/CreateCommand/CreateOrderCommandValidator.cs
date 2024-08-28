@@ -21,8 +21,6 @@ namespace OrderManagement.Application.Orders.Commands.CreateCommand
                 .MaximumLength(100)
                 .NotEmpty();
 
-            RuleFor(o => o.ProductId)
-                .MustAsync(ProductExists).WithMessage("Product does not exists");
         }
 
         private async Task<bool> ProductExists(int productId, CancellationToken cancellationToken)

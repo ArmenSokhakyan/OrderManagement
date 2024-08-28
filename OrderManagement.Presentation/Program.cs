@@ -2,7 +2,6 @@ using Microsoft.Extensions.Configuration;
 using OrderManagement.Application;
 using OrderManagement.Core.Inteface;
 using OrderManagement.Persistence;
-using OrderManagement.Persistence.Data.Repository.InMemory;
 using OrderManagement.Persistence.Data.Repository.Mongo;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +11,7 @@ builder.Services.AddApplicationDependencies();
 builder.Services.AddPersistenceDependencies(builder.Configuration);
 
 builder.Services.AddScoped<IOrderRepository, OrderMongoRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemMongoRepository>();
 builder.Services.AddScoped<IProductRepository, ProductMongoRepository>();
 
 builder.Services.AddControllers();

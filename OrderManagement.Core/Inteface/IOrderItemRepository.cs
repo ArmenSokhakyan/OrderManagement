@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace OrderManagement.Core.Inteface
 {
-    public interface IOrderRepository
+    public interface IOrderItemRepository
     {
-        Task<ObjectId> CreateAsync(Order order);
-        Task<List<Order>> GetOrdersAsync();
+        Task AddRowAsync(OrderItem orderItem);
+        Task AddRowsAsync(List<OrderItem> orderItems);
+        Task<List<OrderItem>> GetOrderItemsAsync(ObjectId orderId);
     }
 }
