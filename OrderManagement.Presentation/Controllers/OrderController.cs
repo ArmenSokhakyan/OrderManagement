@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using OrderManagement.Application.Orders.Commands.CreateCommand;
 using OrderManagement.Application.Orders.Queries;
 using OrderManagement.Core.Entities;
+using OrderManagement.Presentation.Exceptions;
 
 namespace OrderManagement.Presentation.Controllers
 {
@@ -11,7 +12,7 @@ namespace OrderManagement.Presentation.Controllers
     {
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderCommand createOrderCommand)
-        {
+        {            
             await mediator.Send(createOrderCommand);
             return Created();
         }
